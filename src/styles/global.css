@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* If you want to add your own default base styles for specific HTML elements, use the @layer directive to add those styles to Tailwind's base layer: */
+@layer base {
+  section {
+    padding-block: 5rem;
+  }
+
+  h1 {
+    font-size: var(--text-6xl);
+    line-height: 1.1;
+  }
+}
+
+/*
+Use the components layer for any more complicated classes you want to add to your project that you'd still like to be able to override with utility classes.
+Traditionally these would be classes like card, btn, badge — that kind of thing.
+*/
+@layer components {
+  .button-group {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding-inline: 1.25rem;
+    min-height: 3rem;
+    background-color: var(--color-gray-700);
+    color: var(--color-white);
+    border-radius: calc(infinity * 1px);
+    font-weight: 500;
+    font-size: 1.125rem;
+
+    &:hover {
+      background-color: var(--color-gray-800);
+    }
+
+    &:active {
+      background-color: var(--color-gray-900);
+    }
+  }
+}
+
+.container {
+  padding-inline: 5%;
+  margin-inline: auto;
+}

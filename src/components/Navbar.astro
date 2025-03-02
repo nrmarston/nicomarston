@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/astro.svg";
+---
+
+<div class="py-4 fixed w-full bg-gray-50">
+  <div class="container">
+    <div class="flex justify-between items-center">
+      <div>
+        <a href="/">
+          <Image src={logo} alt="logo" width={150} loading="eager" />
+        </a>
+      </div>
+      <nav>
+        <ul class="flex gap-2">
+          <li>
+            <a
+              href="/#about"
+              class="py-2.5 px-5 hover:bg-gray-200 rounded-full text-lg"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="/#work"
+              class="py-2.5 px-4 hover:bg-gray-200 rounded-full text-lg">Work</a
+            >
+          </li>
+          <li>
+            <a
+              href="/#contact"
+              class="py-2.5 px-4 hover:bg-gray-200 rounded-full text-lg"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div>
+        <a href="/#contact" class="button">Let's Talk</a>
+      </div>
+      <!-- Dropdown menu that shows on tablet view -->
+    </div>
+  </div>
+</div>
