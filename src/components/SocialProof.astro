@@ -1,15 +1,15 @@
 ---
 const reviews = [
   {
-    review: "Nico did a good job. I will hire him again.",
+    review: "Nico did a good job. I will hire him again. He was very professional and delivered the project on time. The quality of work was exceptional and exceeded my expectations.",
     author: "Steve W.",
   },
   {
-    review: "Amazing work, highly recommended!",
+    review: "Amazing work, highly recommended! Nico's attention to detail and dedication to the project were outstanding. He communicated effectively throughout the process and ensured everything was perfect.",
     author: "Jane D.",
   },
   {
-    review: "Exceeded my expectations, fantastic service.",
+    review: "Exceeded my expectations, fantastic service. Nico went above and beyond to deliver a top-notch product. His expertise and commitment to excellence were evident in every aspect of the project.",
     author: "Mark T.",
   },
 ];
@@ -21,10 +21,10 @@ const reviews = [
       {
         reviews.map((item) => {
           return (
-            <div class="grow dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+            <div class="card">
               <div class="p-6 flex flex-col gap-3">
-                <p class="text-3xl">{item.review}</p>
-                <p class="text-lg font-medium">{item.author}</p>
+                <p class="text-xl italic">"{item.review}"</p>
+                <p class="text-base font-medium">{item.author}</p>
               </div>
             </div>
           );
