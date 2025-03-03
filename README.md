@@ -1,6 +1,6 @@
 # TODO
 
-[x] Social Proof
-[x] Comparison
-[] Benefits
-[] Navbar glass background
+[x] Navbar glass background
+[] Theme icon styling
+[] Responsiveness
+[] High-fidelity

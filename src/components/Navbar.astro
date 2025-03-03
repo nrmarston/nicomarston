@@ -5,8 +5,8 @@ import lightLogo from "../assets/astro-light.svg";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<div class="py-4 fixed w-full backdrop-blur-sm">
-  <div class="container">
+<header>
+  <div class="container relative z-10">
     <div class="flex justify-between items-center">
       <div>
         <a href="/">
@@ -60,4 +60,53 @@ import ThemeIcon from "./ThemeIcon.astro";
       <!-- Dropdown menu that shows on tablet view -->
     </div>
   </div>
-</div>
+  <div class="backdrop"></div>
+  <div class="backdrop-edge"></div>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-block: 1rem;
+    z-index: 2;
+    outline: 1px solid var(--border);
+  }
+
+  .backdrop {
+    position: absolute;
+    inset: 0;
+    height: 200%;
+    z-index: 0;
+    background: linear-gradient(to bottom, var(--background), transparent 50%);
+    backdrop-filter: blur(16px);
+    mask-image: linear-gradient(to bottom, black 0% 50%, transparent 50% 100%);
+    pointer-events: none;
+  }
+
+  .backdrop-edge {
+    --thickness: 3px;
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    /*
+      Shift down by 100% of its own height, so that the
+      edge stacks underneath the main <header>:
+    */
+    transform: translateY(100%);
+    background: --alpha(var(--background) / 10%);
+    backdrop-filter: blur(8px) brightness(120%);
+    pointer-events: none;
+    /*
+      We mask out everything aside from the first few
+      pixels, specified by the --thickness variable:
+    */
+    mask-image: linear-gradient(
+      to bottom,
+      black 0,
+      black var(--thickness),
+      transparent var(--thickness)
+    );
+  }
+</style>
