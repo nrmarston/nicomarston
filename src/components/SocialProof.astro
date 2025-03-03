@@ -1,0 +1,35 @@
+---
+const reviews = [
+  {
+    review: "Nico did a good job. I will hire him again.",
+    author: "Steve W.",
+  },
+  {
+    review: "Amazing work, highly recommended!",
+    author: "Jane D.",
+  },
+  {
+    review: "Exceeded my expectations, fantastic service.",
+    author: "Mark T.",
+  },
+];
+---
+
+<section class="py-12">
+  <div class="container">
+    <figure class="grid grid-flow-col gap-10">
+      {
+        reviews.map((item) => {
+          return (
+            <div class="grow dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+              <div class="p-6 flex flex-col gap-3">
+                <p class="text-3xl">{item.review}</p>
+                <p class="text-lg font-medium">{item.author}</p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </figure>
+  </div>
+</section>

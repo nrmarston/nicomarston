@@ -1,14 +1,31 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/astro.svg";
+import logo from "../assets/astro-dark.svg";
+import lightLogo from "../assets/astro-light.svg";
+import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<div class="py-4 fixed w-full bg-gray-50">
+<div class="py-4 fixed w-full backdrop-blur-sm">
   <div class="container">
     <div class="flex justify-between items-center">
       <div>
         <a href="/">
-          <Image src={logo} alt="logo" width={150} loading="eager" />
+          <!-- Display different logo depending on light or dark mode -->
+          <Image
+            src={logo}
+            alt="logo"
+            width={150}
+            loading="eager"
+            class="block dark:hidden"
+          />
+          <Image
+            src={lightLogo}
+            alt="logo"
+            width={150}
+            loading="eager"
+            class="hidden dark:block"
+          />
+          <span class="sr-only">Astro Logo</span>
         </a>
       </div>
       <nav>
@@ -16,27 +33,29 @@ import logo from "../assets/astro.svg";
           <li>
             <a
               href="/#about"
-              class="py-2.5 px-5 hover:bg-gray-200 rounded-full text-lg"
+              class="py-2.5 px-5 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full text-lg"
               >About</a
             >
           </li>
           <li>
             <a
               href="/#work"
-              class="py-2.5 px-4 hover:bg-gray-200 rounded-full text-lg">Work</a
+              class="py-2.5 px-4 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full text-lg"
+              >Work</a
             >
           </li>
           <li>
             <a
               href="/#contact"
-              class="py-2.5 px-4 hover:bg-gray-200 rounded-full text-lg"
+              class="py-2.5 px-4 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full text-lg"
               >Contact</a
             >
           </li>
         </ul>
       </nav>
-      <div>
+      <div class="flex justify-end items-center gap-6">
         <a href="/#contact" class="button">Let's Talk</a>
+        <ThemeIcon />
       </div>
       <!-- Dropdown menu that shows on tablet view -->
     </div>
