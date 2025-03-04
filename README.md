@@ -1,6 +1,7 @@
 # TODO
 
 [] High-fidelity design
-[] Comparison section
+[x] Comparison section
 [] Update copy
 [] Make testimonials look better
+[] Benefits section needs text and images
