@@ -1,4 +1,5 @@
 ---
+import { Carousel } from "@/components/Carousel";
 const reviews = [
   {
     review:
@@ -18,21 +19,22 @@ const reviews = [
 ];
 ---
 
+<style>
+  .carousel-wrapper {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      var(--background) 5%,
+      var(--background) 95%,
+      transparent
+    );
+  }
+</style>
+
 <section class="py-12">
-  <div class="container">
-    <figure class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-      {
-        reviews.map((item) => {
-          return (
-            <div class="card">
-              <div class="card-inner">
-                <p class="text-xl italic">"{item.review}"</p>
-                <p class="text-base font-medium">{item.author}</p>
-              </div>
-            </div>
-          );
-        })
-      }
-    </figure>
+  <div class="container-md">
+    <div class="carousel-wrapper">
+      <Carousel data={reviews} client:visible />
+    </div>
   </div>
 </section>
