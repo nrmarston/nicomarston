@@ -17,9 +17,9 @@
     --custom-marker-negative: "❌";
     --custom-marker-positive: "✅";
 
-    /* ShadCN Theme Colors */
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
+    /* Theme Colors */
+    --background: var(--color-gray-50);
+    --foreground: var(--color-black);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
@@ -28,7 +28,7 @@
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
+    --muted: var(--color-gray-200);
     --muted-foreground: oklch(0.556 0 0);
     --accent: oklch(0.97 0 0);
     --accent-foreground: oklch(0.205 0 0);
@@ -65,7 +65,7 @@
     --primary-foreground: oklch(0.205 0 0);
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
+    --muted: var(--color-gray-100);
     --muted-foreground: oklch(0.708 0 0);
     --accent: oklch(0.269 0 0);
     --accent-foreground: oklch(0.985 0 0);
@@ -98,11 +98,20 @@
   } */
 
   html {
-    background-color: var(--color-gray-50);
+    background-color: var(--background);
+    color: var(--foreground);
+    font-weight: normal;
+    scroll-behavior: smooth;
+  }
+
+  html.dark {
+    background-color: var(--color-gray-900);
+    color: var(--color-white);
+    font-weight: 300;
   }
 
   section {
-    padding-block: 5rem;
+    padding-block: clamp(2.5rem, 5vw + 1rem, 6rem);
   }
 
   h1,
@@ -116,22 +125,26 @@
   }
 
   h1 {
-    font-size: var(--text-6xl);
+    font-size: clamp(var(--text-4xl), 5vw + 1rem, var(--text-6xl));
     line-height: var(--text-6xl--line-height);
   }
 
   h2 {
-    font-size: var(--text-4xl);
+    font-size: clamp(var(--text-2xl), 5vw + 1rem, var(--text-4xl));
     line-height: var(--text-4xl--line-height);
   }
 
   h3 {
-    font-size: var(--text-3xl);
+    font-size: clamp(var(--text-2xl), 5vw + 1rem, var(--text-3xl));
     line-height: var(--text-3xl--line-height);
   }
 
   p {
     text-wrap: pretty;
+  }
+
+  .dark p {
+    font-size: 1.125rem;
   }
 }
 
@@ -205,6 +218,12 @@ Traditionally these would be classes like card, btn, badge — that kind of thin
     gap: 0.75rem;
     height: 100%;
   }
+
+  @media (max-width: 40rem) {
+    .card-inner {
+      padding: 1rem;
+    }
+  }
 }
 
 @theme inline {
@@ -244,11 +263,6 @@ Traditionally these would be classes like card, btn, badge — that kind of thin
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-}
-
-html.dark {
-  background-color: var(--color-gray-900);
-  color: var(--color-gray-100);
 }
 
 .container {

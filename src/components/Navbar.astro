@@ -29,7 +29,7 @@ import ThemeIcon from "./ThemeIcon.astro";
         </a>
       </div>
       <nav>
-        <ul class="flex gap-2">
+        <ul class="gap-2 hidden md:flex font-medium">
           <li>
             <a
               href="/#about"
@@ -53,8 +53,8 @@ import ThemeIcon from "./ThemeIcon.astro";
           </li>
         </ul>
       </nav>
-      <div class="flex justify-end items-center gap-6">
-        <a href="/#contact" class="button">Let's Talk</a>
+      <div class="flex justify-end items-center gap-4">
+        <a href="/#contact" class="button hidden sm:inline-flex">Let's Talk</a>
         <ThemeIcon />
       </div>
       <!-- Dropdown menu that shows on tablet view -->
@@ -72,6 +72,12 @@ import ThemeIcon from "./ThemeIcon.astro";
     padding-block: 1rem;
     z-index: 2;
     outline: 1px solid var(--border);
+  }
+
+  @media (max-width: 48rem) {
+    header {
+      position: relative;
+    }
   }
 
   .backdrop {

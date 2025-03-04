@@ -1,15 +1,18 @@
 ---
 const reviews = [
   {
-    review: "Nico did a good job. I will hire him again. He was very professional and delivered the project on time. The quality of work was exceptional and exceeded my expectations.",
+    review:
+      "Nico did a good job. I will hire him again. He was very professional and delivered the project on time. The quality of work was exceptional and exceeded my expectations.",
     author: "Steve W.",
   },
   {
-    review: "Amazing work, highly recommended! Nico's attention to detail and dedication to the project were outstanding. He communicated effectively throughout the process and ensured everything was perfect.",
+    review:
+      "Amazing work, highly recommended! Nico's attention to detail and dedication to the project were outstanding. He communicated effectively throughout the process and ensured everything was perfect.",
     author: "Jane D.",
   },
   {
-    review: "Exceeded my expectations, fantastic service. Nico went above and beyond to deliver a top-notch product. His expertise and commitment to excellence were evident in every aspect of the project.",
+    review:
+      "Exceeded my expectations, fantastic service. Nico went above and beyond to deliver a top-notch product. His expertise and commitment to excellence were evident in every aspect of the project.",
     author: "Mark T.",
   },
 ];
@@ -17,12 +20,12 @@ const reviews = [
 
 <section class="py-12">
   <div class="container">
-    <figure class="grid grid-flow-col gap-10">
+    <figure class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {
         reviews.map((item) => {
           return (
             <div class="card">
-              <div class="p-6 flex flex-col gap-3">
+              <div class="card-inner">
                 <p class="text-xl italic">"{item.review}"</p>
                 <p class="text-base font-medium">{item.author}</p>
               </div>
