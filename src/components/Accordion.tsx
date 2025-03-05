@@ -14,11 +14,15 @@ interface Props {
 
 export function Accordion({ data }: Props) {
   return (
-    <BaseAccordion type="multiple" className="w-full">
+    <BaseAccordion defaultValue={[`item-0`]} type="multiple" className="w-full">
       {data.map((item, i) => {
         return (
-          <AccordionItem key={item.title} value={`item-${i.toFixed()}`}>
-            <AccordionTrigger>{item.title}</AccordionTrigger>
+          <AccordionItem
+            key={item.title}
+            value={`item-${i.toFixed()}`}
+            className="bg-white dark:bg-gray-800"
+          >
+            <AccordionTrigger className="cursor-pointer">{item.title}</AccordionTrigger>
             <AccordionContent>{item.description}</AccordionContent>
           </AccordionItem>
         );
