@@ -100,14 +100,11 @@
   html {
     background-color: var(--background);
     color: var(--foreground);
-    font-weight: normal;
-    scroll-behavior: smooth;
   }
 
   html.dark {
     background-color: var(--color-gray-900);
     color: var(--color-white);
-    font-weight: 300;
   }
 
   section {
@@ -143,8 +140,8 @@
     text-wrap: pretty;
   }
 
-  .dark p {
-    font-size: 1.125rem;
+  p.dark {
+    font-weight: 300;
   }
 }
 
