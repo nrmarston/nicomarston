@@ -18,11 +18,13 @@ export function Accordion({ data }: Props) {
       {data.map((item, i) => {
         return (
           <AccordionItem
-            key={item.title}
+            key={`accordion-${i}`}
             value={`item-${i.toFixed()}`}
-            className="bg-white dark:bg-gray-800"
+            className="bg-(--card) text-(--card-foreground)"
           >
-            <AccordionTrigger className="cursor-pointer">{item.title}</AccordionTrigger>
+            <AccordionTrigger className="cursor-pointer">
+              {item.title}
+            </AccordionTrigger>
             <AccordionContent>{item.description}</AccordionContent>
           </AccordionItem>
         );

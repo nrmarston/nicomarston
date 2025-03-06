@@ -17,19 +17,22 @@
     --custom-marker-negative: "❌";
     --custom-marker-positive: "✅";
 
+    /* Custom easing */
+    --ease-custom: cubic-bezier(0.645, 0.045, 0.355, 1);
+
     /* Theme Colors */
-    --background: var(--color-gray-50);
+    --background: var(--color-slate-50);
     --foreground: var(--color-black);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
+    --card: var(--color-white);
+    --card-foreground: var(--color-slate-950);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
     --primary: oklch(0.205 0 0);
     --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: var(--color-gray-200);
-    --muted-foreground: var(--color-gray-600);
+    --secondary: var(--color-slate-200);
+    --secondary-foreground: var(--color-slate-950);
+    --muted: var(--color-slate-200);
+    --muted-foreground: var(--color-slate-600);
     --accent: oklch(0.97 0 0);
     --accent-foreground: oklch(0.205 0 0);
     --destructive: oklch(0.577 0.245 27.325);
@@ -55,23 +58,23 @@
 
   :root.dark {
     /* Dark Theme Colors  */
-    --background: var(--color-gray-900);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.145 0 0);
-    --card-foreground: oklch(0.985 0 0);
+    --background: var(--color-slate-950);
+    --foreground: var(--color-gray-50);
+    --card: var(--color-slate-900);
+    --card-foreground: var(--color-gray-50);
     --popover: oklch(0.145 0 0);
     --popover-foreground: oklch(0.985 0 0);
     --primary: oklch(0.985 0 0);
     --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: var(--color-gray-100);
-    --muted-foreground: var(--color-gray-300);
+    --secondary: var(--color-slate-800);
+    --secondary-foreground: var(--color-slate-50);
+    --muted: var(--color-slate-100);
+    --muted-foreground: var(--color-slate-300);
     --accent: oklch(0.269 0 0);
     --accent-foreground: oklch(0.985 0 0);
     --destructive: oklch(0.396 0.141 25.723);
     --destructive-foreground: oklch(0.637 0.237 25.331);
-    --border: var(--color-gray-800);
+    --border: var(--color-slate-800);
     --input: oklch(0.269 0 0);
     --ring: oklch(0.439 0 0);
     --chart-1: oklch(0.488 0.243 264.376);
@@ -89,22 +92,10 @@
     --sidebar-ring: oklch(0.439 0 0);
   }
 
-  /* *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  } */
-
   html {
     background-color: var(--background);
     color: var(--foreground);
-  }
-
-  html.dark {
-    background-color: var(--color-gray-900);
-    color: var(--color-white);
+    scroll-behavior: smooth;
   }
 
   section {
@@ -139,10 +130,6 @@
   p {
     text-wrap: pretty;
   }
-
-  p.dark {
-    font-weight: 300;
-  }
 }
 
 /*
@@ -165,31 +152,47 @@ Traditionally these would be classes like card, btn, badge — that kind of thin
     gap: 0.5rem;
     padding-inline: 1.25rem;
     min-height: 3rem;
-    background-color: var(--color-gray-700);
+    background-color: var(--color-blue-700);
     color: var(--color-white);
     border-radius: calc(infinity * 1px);
     font-weight: 500;
     font-size: var(--text-lg);
-    transition: all 300ms ease-out;
+    transition: all 250ms var(--ease-custom);
 
     &:hover {
-      background-color: var(--color-gray-800);
-      box-shadow: 0 0 0 0.25em --alpha(var(--color-gray-600) / 30%);
+      background-color: var(--color-blue-800);
+      box-shadow: 0 0 0 0.25em --alpha(var(--color-blue-600) / 20%);
     }
 
     &:focus-visible {
-      outline: 2px solid var(--color-gray-600);
+      outline: 2px solid var(--color-blue-600);
       outline-offset: 2px;
     }
 
     &:active {
-      background-color: var(--color-gray-900);
-      box-shadow: 0 0 0 0.1875rem --alpha(var(--color-gray-600) / 30%);
+      background-color: var(--color-blue-900);
+      box-shadow: 0 0 0 0.125em --alpha(var(--color-blue-600) / 30%);
     }
   }
 
   .dark .button {
-    background-color: var(--color-gray-600);
+    background-color: var(--color-blue-700);
+    text-shadow: 1px 1px --alpha(var(--color-black) / 20%);
+
+    &:hover {
+      background-color: var(--color-blue-600);
+      box-shadow: 0 0 0 0.25em --alpha(var(--color-blue-500) / 30%);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-blue-500);
+      outline-offset: 2px;
+    }
+
+    &:active {
+      background-color: var(--color-blue-700);
+      box-shadow: 0 0 0 0.125em --alpha(var(--color-blue-600) / 30%);
+    }
   }
 
   .button.is-toggle {
@@ -203,14 +206,10 @@ Traditionally these would be classes like card, btn, badge — that kind of thin
 
   /* Card Component  */
   .card {
-    border: 1px solid var(--color-gray-200);
-    background-color: var(--color-white);
+    border: 1px solid var(--border);
+    background-color: var(--card);
+    color: var(--card-foreground);
     border-radius: var(--radius-md);
-  }
-
-  .dark .card {
-    background-color: var(--color-gray-800);
-    border-color: var(--color-gray-700);
   }
 
   .card-inner {

@@ -33,28 +33,30 @@ import ThemeIcon from "./ThemeIcon.astro";
           <li>
             <a
               href="/#about"
-              class="py-2.5 px-5 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full text-lg"
+              class="py-2.5 px-5 text-(--secondary-foreground)  hover:bg-(--secondary) rounded-full text-lg"
               >About</a
             >
           </li>
           <li>
             <a
               href="/#work"
-              class="py-2.5 px-4 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full text-lg"
+              class="py-2.5 px-4 text-(--secondary-foreground)  hover:bg-(--secondary) rounded-full text-lg"
               >Work</a
             >
           </li>
           <li>
             <a
               href="/#contact"
-              class="py-2.5 px-4 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-full text-lg"
+              class="py-2.5 px-4 text-(--secondary-foreground)  hover:bg-(--secondary) rounded-full text-lg"
               >Contact</a
             >
           </li>
         </ul>
       </nav>
       <div class="flex justify-end items-center gap-4">
-        <a href="/#contact" class="button is-small hidden sm:inline-flex">Let's Talk</a>
+        <a href="/#contact" class="button is-small hidden sm:inline-flex"
+          >Let's Talk</a
+        >
         <ThemeIcon />
       </div>
       <!-- Dropdown menu that shows on tablet view -->
@@ -92,7 +94,7 @@ import ThemeIcon from "./ThemeIcon.astro";
   }
 
   .backdrop-edge {
-    --thickness: 2px;
+    --thickness: 3px;
     position: absolute;
     inset: 0;
     height: 100%;
@@ -101,7 +103,7 @@ import ThemeIcon from "./ThemeIcon.astro";
       edge stacks underneath the main <header>:
     */
     transform: translateY(100%);
-    background: --alpha(var(--background) / 10%);
+    background: --alpha(var(--background) / 20%);
     backdrop-filter: blur(8px) brightness(120%);
     pointer-events: none;
     /*
