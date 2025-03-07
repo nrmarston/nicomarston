@@ -33,7 +33,7 @@ export function Carousel({ data }: Props) {
     >
       <CarouselContent>
         {data.map((item) => (
-          <CarouselItem className="pl-5 md:pl-10 max-w-lg" key={item.author}>
+          <CarouselItem className="max-w-lg pl-5 md:pl-10" key={item.author}>
             <div className="card">
               <div className="card-inner">
                 <p className="text-xl italic">"{item.review}"</p>

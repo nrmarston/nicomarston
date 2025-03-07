@@ -3,7 +3,7 @@ import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 export function FlickeringGridDemo() {
   return (
     <FlickeringGrid
-      className="absolute inset-0 z-0 size-full pointer-events-none"
+      className="pointer-events-none absolute inset-0 z-0 size-full"
       squareSize={4}
       gridGap={8}
       color="#3b82f6"

@@ -4,14 +4,48 @@
 /* Works with the ThemeIcon component to set theme in localStorage */
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-red-*: initial;
+  --color-red-50: oklch(97.44% 0.0111 31.07);
+  --color-red-100: oklch(94.51% 0.0262 32.24);
+  --color-red-200: oklch(90.12% 0.0502 31.84);
+  --color-red-300: oklch(83.37% 0.0873 32.11);
+  --color-red-400: oklch(74.4% 0.1437 32.56);
+  --color-red-500: oklch(66.92% 0.1835 33.2);
+  --color-red-600: oklch(60.35% 0.1947 33.22);
+  --color-red-700: oklch(52.84% 0.1731 33.23);
+  --color-red-800: oklch(46.55% 0.1452 33.45);
+  --color-red-900: oklch(41.64% 0.1186 33.38);
+  --color-red-950: oklch(27.02% 0.0779 33.35);
+
+  --animate-colorCycle: colorCycle 3s linear infinite;
+
+  @keyframes colorCycle {
+    0% {
+      color: var(--color-red-600);
+    }
+    33% {
+      color: var(--color-orange-600);
+    }
+    66% {
+      color: var(--color-amber-600);
+    } /* Amber */
+    100% {
+      color: var(--color-red-600);
+    } /* Smooth transition back */
+  }
+}
+
 /* If you want to add your own default base styles for specific HTML elements, use the @layer directive to add those styles to Tailwind's base layer: */
 @layer base {
   :root {
     /* Typography */
-    --font-sans: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
-      Arial, sans-serif;
-    --font-serif: Superclarendon, "Bookman Old Style", "URW Bookman",
-      "URW Bookman L", "Georgia Pro", Georgia, serif;
+    --font-sans:
+      Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+      sans-serif;
+    --font-serif:
+      Superclarendon, "Bookman Old Style", "URW Bookman", "URW Bookman L",
+      "Georgia Pro", Georgia, serif;
 
     /* Custom List Markers */
     --custom-marker-negative: "❌";
@@ -21,18 +55,18 @@
     --ease-custom: cubic-bezier(0.645, 0.045, 0.355, 1);
 
     /* Theme Colors */
-    --background: var(--color-slate-50);
-    --foreground: var(--color-black);
+    --background: var(--color-neutral-50);
+    --foreground: var(--color-neutral-950);
     --card: var(--color-white);
-    --card-foreground: var(--color-slate-950);
+    --card-foreground: var(--color-neutral-950);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
     --primary: oklch(0.205 0 0);
     --primary-foreground: oklch(0.985 0 0);
-    --secondary: var(--color-slate-200);
-    --secondary-foreground: var(--color-slate-950);
-    --muted: var(--color-slate-200);
-    --muted-foreground: var(--color-slate-600);
+    --secondary: var(--color-neutral-200);
+    --secondary-foreground: var(--color-neutral-950);
+    --muted: var(--color-neutral-200);
+    --muted-foreground: var(--color-neutral-600);
     --accent: oklch(0.97 0 0);
     --accent-foreground: oklch(0.205 0 0);
     --destructive: oklch(0.577 0.245 27.325);
@@ -58,23 +92,23 @@
 
   :root.dark {
     /* Dark Theme Colors  */
-    --background: var(--color-slate-950);
-    --foreground: var(--color-gray-50);
-    --card: var(--color-slate-900);
+    --background: var(--color-neutral-900);
+    --foreground: var(--color-white);
+    --card: var(--color-neutral-900);
     --card-foreground: var(--color-gray-50);
     --popover: oklch(0.145 0 0);
     --popover-foreground: oklch(0.985 0 0);
     --primary: oklch(0.985 0 0);
     --primary-foreground: oklch(0.205 0 0);
-    --secondary: var(--color-slate-800);
-    --secondary-foreground: var(--color-slate-50);
-    --muted: var(--color-slate-100);
-    --muted-foreground: var(--color-slate-300);
+    --secondary: var(--color-neutral-800);
+    --secondary-foreground: var(--color-neutral-50);
+    --muted: var(--color-neutral-100);
+    --muted-foreground: var(--color-neutral-300);
     --accent: oklch(0.269 0 0);
     --accent-foreground: oklch(0.985 0 0);
     --destructive: oklch(0.396 0.141 25.723);
     --destructive-foreground: oklch(0.637 0.237 25.331);
-    --border: var(--color-slate-800);
+    --border: var(--color-neutral-800);
     --input: oklch(0.269 0 0);
     --ring: oklch(0.439 0 0);
     --chart-1: oklch(0.488 0.243 264.376);
@@ -152,7 +186,7 @@ Traditionally these would be classes like card, btn, badge — that kind of thin
     gap: 0.5rem;
     padding-inline: 1.25rem;
     min-height: 3rem;
-    background-color: var(--color-blue-700);
+    background-color: var(--color-red-700);
     color: var(--color-white);
     border-radius: calc(infinity * 1px);
     font-weight: 500;
@@ -160,38 +194,38 @@ Traditionally these would be classes like card, btn, badge — that kind of thin
     transition: all 250ms var(--ease-custom);
 
     &:hover {
-      background-color: var(--color-blue-800);
-      box-shadow: 0 0 0 0.25em --alpha(var(--color-blue-600) / 20%);
+      background-color: var(--color-red-800);
+      box-shadow: 0 0 0 0.25em --alpha(var(--color-red-600) / 20%);
     }
 
     &:focus-visible {
-      outline: 2px solid var(--color-blue-600);
+      outline: 2px solid var(--color-red-600);
       outline-offset: 2px;
     }
 
     &:active {
-      background-color: var(--color-blue-900);
-      box-shadow: 0 0 0 0.125em --alpha(var(--color-blue-600) / 30%);
+      background-color: var(--color-red-900);
+      box-shadow: 0 0 0 0.125em --alpha(var(--color-red-600) / 30%);
     }
   }
 
   .dark .button {
-    background-color: var(--color-blue-700);
+    background-color: var(--color-red-700);
     text-shadow: 1px 1px --alpha(var(--color-black) / 20%);
 
     &:hover {
-      background-color: var(--color-blue-600);
-      box-shadow: 0 0 0 0.25em --alpha(var(--color-blue-500) / 30%);
+      background-color: var(--color-red-600);
+      box-shadow: 0 0 0 0.25em --alpha(var(--color-red-500) / 30%);
     }
 
     &:focus-visible {
-      outline: 2px solid var(--color-blue-500);
+      outline: 2px solid var(--color-red-500);
       outline-offset: 2px;
     }
 
     &:active {
-      background-color: var(--color-blue-700);
-      box-shadow: 0 0 0 0.125em --alpha(var(--color-blue-600) / 30%);
+      background-color: var(--color-red-700);
+      box-shadow: 0 0 0 0.125em --alpha(var(--color-red-600) / 30%);
     }
   }
 
